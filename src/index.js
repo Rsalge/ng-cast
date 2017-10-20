@@ -4,4 +4,5 @@ angular.module('video-player', [])
     'self',
     'https://www.youtube.com/**'
   ]);
-});
+
+})
