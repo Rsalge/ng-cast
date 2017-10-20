@@ -1,15 +1,18 @@
 angular.module('video-player')
 .component('videoListEntry', {
+  bindings:{
+    videos: '<',
+    video: '<',
+    selectVideo: '<'
+  },
+
+
   controller: function() {
     console.log("Video list entry: ", this);
+    // this.selectVideo = function(){
+    //   console.log('selectVideo ran')
+    // };
   },
-
-  bindings:{
-      video: '<'
-  },
-
-
-
 
 
   template:`
@@ -18,7 +21,7 @@ angular.module('video-player')
       <img class="media-object" src={{$ctrl.video.snippet.thumbnails.default.url}} />
     </div>
     <div class="media-body">
-      <div class="video-list-entry-title">{{$ctrl.video.snippet.title}}</div>
+      <div class="video-list-entry-title" ng-click="$ctrl.selectVideo()">{{$ctrl.video.snippet.title}}</div>
       <div class="video-list-entry-detail">{{$ctrl.video.snippet.description}}</div>
     </div>
   </li>

@@ -1,12 +1,19 @@
 angular.module('video-player')
 .component('videoList', {
-  controller: function() {
-    console.log("Video list: ", this);
+  bindings:{
+    videos: '<',
+    video: '<',
+    selectVideo: '<'
   },
 
-  bindings:{
-      videos: '<'
+
+  controller: function() {
+    console.log("Video list: ", this);
+    // this.selectVideo = function(){
+    //   console.log('selectVideo ran')
+    // };
   },
+
 
 
 
@@ -16,6 +23,7 @@ angular.module('video-player')
     <video-list-entry
     ng-repeat="video in $ctrl.videos"
     video = "video"
+    select-video = "$ctrl.selectVideo"
     >
   </video-list-entry>
 

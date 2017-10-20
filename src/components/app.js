@@ -11,7 +11,7 @@ angular.module('video-player')
     this.videos = window.exampleVideoData;
 
     this.selectVideo = function(){
-
+      console.log('selectVideo ran')
     };
 
     this.searchResults = function(){
@@ -32,10 +32,15 @@ angular.module('video-player')
      </nav>
      <div class="row">
        <div class="col-md-7">
-         <video-player video="$ctrl.currentVideo"></video-player>
+         <video-player
+         video="$ctrl.currentVideo"
+         ></video-player>
        </div>
        <div class="col-md-5">
-         <video-list videos="$ctrl.videos"></video-list>
+         <video-list
+         select-video="$ctrl.selectVideo"
+         videos="$ctrl.videos"></video-list
+         >
        </div>
      <div>
    </div>
