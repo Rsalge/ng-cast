@@ -21,7 +21,8 @@ angular.module('video-player')
   `
   <ul class="video-list">
     <video-list-entry
-    ng-repeat="video in $ctrl.videos"
+    ng-repeat="video in $ctrl.videos track by $index"
+    index = "$index"
     video = "video"
     select-video = "$ctrl.selectVideo"
     >
