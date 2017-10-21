@@ -1,27 +1,27 @@
 angular.module('video-player')
 
 .component('app', {
-  //TOD`
+
   bindings:{
 
   },
 
-  controller: function(){
+  controller: function(youTube){
     this.currentVideo = window.exampleVideoData[0];
     this.videos = window.exampleVideoData;
 
-    this.selectVideo = function(index){
+    this.selectVideo = (index) => {
       console.log('selectVideo ran', this)
       console.log("selected video index", index)
       this.currentVideo = window.exampleVideoData[index]
     };
 
-    this.selectVideo = this.selectVideo.bind(this);
-
-    this.searchResults = function(){
-
+    this.searchResults = (currentVideo, videos) => {
+      this.currentVideo = currentVideo
+      this.videos = videos
     };
 
+    this.searchService = youTube;
 
 
 
@@ -31,7 +31,7 @@ angular.module('video-player')
    <div id="app container">
      <nav class="navbar">
        <div class="col-md-6 col-md-offset-3">
-         <search><h5><em>search</em> component goes here</h5></search>
+         <search search-service="$ctrl.searchService" search-results="$ctrl.searchResults"><h5><em>search</em> component goes here</h5></search>
        </div>
      </nav>
      <div class="row">
