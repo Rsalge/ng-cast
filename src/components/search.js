@@ -7,9 +7,11 @@ angular.module('video-player')
 
   controller: function(){
 
-    this.results = function(){
+    this.result = function(){
 
     }
+
+    
   },
 
 
